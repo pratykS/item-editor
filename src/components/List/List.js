@@ -3,12 +3,16 @@ import "./List.css";
 import { Item } from "../ListItem/ListItem";
 
 const ListComponent = (props) => {
-  const { items } = props;
+  const { items, onClickHandler } = props;
   let content;
 
   if (items) {
     content = items.map((item) => (
-      <Item key={`item-${item.id}`} content={item.content} />
+      <Item
+        key={`item-${item.id}`}
+        content={item}
+        onClickHandler={onClickHandler}
+      />
     ));
   } else {
     content = <Item key={1} content={1} />;

@@ -1,0 +1,6 @@
+.editor{
+    display: flex;
+}
+.editor-content{
+    width: 100%;
+}

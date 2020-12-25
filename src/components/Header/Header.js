@@ -1,7 +1,9 @@
 import React from "react";
+import "./Header.css";
 
-const HeaderComponent = () => {
-  return <div>I am a Header</div>;
+const HeaderComponent = (props) => {
+  const { children } = props;
+  return <div className="header">{children}</div>;
 };
 
 export const Header = HeaderComponent;
