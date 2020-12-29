@@ -2,7 +2,7 @@ import React from "react";
 import { List, Button } from "../../components";
 import "./Editor.css";
 import { ItemService } from "../../services/ItemService";
-import useUndo from "../../utils/useHistory";
+import { useHistory } from "../../hooks/useHistory";
 import { Content } from "./components/EditorContent";
 
 const itemArray = ItemService.getItems();
@@ -20,7 +20,7 @@ const EditorComponent = () => {
       canUndo,
       canRedo,
     },
-  ] = useUndo(initState);
+  ] = useHistory(initState);
 
   const { present: presentState } = state;
 
