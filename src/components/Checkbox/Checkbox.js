@@ -1,10 +1,12 @@
 import React from "react";
 
 const CheckboxComponent = (props) => {
-  const { checked, onChangeHandler, label } = props;
+  const { checked, onChangeHandler, label, index } = props;
 
+  // console.log(label);
   const handleOnChange = (e) => {
-    onChangeHandler(!checked);
+    e.stopPropagation();
+    onChangeHandler({ label: label, checked: !checked, index: index });
   };
 
   return (
@@ -12,7 +14,7 @@ const CheckboxComponent = (props) => {
       <input
         type="checkbox"
         checked={checked}
-        onChange={handleOnChange}
+        onChange={(e) => handleOnChange(e)}
       ></input>
       <label>{label}</label>
     </React.Fragment>

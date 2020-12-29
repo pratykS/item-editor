@@ -11,13 +11,14 @@ const ListComponent = (props) => {
       <Item
         key={`item-${item.id}`}
         content={item}
+        label={item.name}
         onClickHandler={onClickHandler}
       />
     ));
   } else {
-    content = <Item key={1} content={1} />;
+    content = <Item key={1} label={1} />;
   }
 
-  return <ul>{content}</ul>;
+  return <ul className="list">{content}</ul>;
 };
 export const List = ListComponent;

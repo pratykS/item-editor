@@ -1,65 +1,11 @@
 import React from "react";
-import { Sidebar, List, Button } from "../../components";
+import { List, Button } from "../../components";
 import "./Editor.css";
-
+import { ItemService } from "../../services/ItemService";
 import useUndo from "../../utils/useHistory";
 import { Content } from "./components/EditorContent";
 
-const items = [
-  { id: 1, content: "Menu1", active: false },
-  { id: 2, content: "Menu2", active: false },
-  { id: 3, content: "Menu3", active: false },
-  { id: 4, content: "Menu4", active: false },
-  { id: 5, content: "Menu5", active: false },
-];
-
-const itemArray = [
-  {
-    id: 1,
-    name: "Pratik",
-    gender: "male",
-    developer: true,
-    plays: ["Guitar", "Piano"],
-    wanderlust: true,
-    favoritePlace: ["Himalayas"],
-  },
-  {
-    id: 1,
-    name: "Samuel",
-    gender: "male",
-    developer: true,
-    plays: ["Guitar", "Piano"],
-    wanderlust: true,
-    favoritePlace: ["Silicon Valley"],
-  },
-  {
-    id: 1,
-    name: "Clara",
-    gender: "female",
-    developer: true,
-    plays: ["Guitar", "Piano"],
-    wanderlust: true,
-    favoritePlace: ["Los Angeles"],
-  },
-  {
-    id: 1,
-    name: "Dani",
-    gender: "female",
-    developer: false,
-    plays: ["Guitar", "Piano"],
-    wanderlust: true,
-    favoritePlace: ["Graz"],
-  },
-  {
-    id: 1,
-    name: "Dini",
-    gender: "female",
-    developer: false,
-    plays: null,
-    wanderlust: false,
-    favoritePlace: null,
-  },
-];
+const itemArray = ItemService.getItems();
 
 const EditorComponent = () => {
   const initState = itemArray[0];
@@ -83,32 +29,41 @@ const EditorComponent = () => {
   };
 
   const sidebarContent = (
-    <List items={items} onClickHandler={onMenuClickHandler}></List>
+    <List items={itemArray} onClickHandler={onMenuClickHandler}></List>
   );
 
   return (
-    <>
-      <div className="headerContent">
-        <Button label={"Undo"} onClick={undoState}></Button>
-        <Button label={"Redo"} onClick={redoState}></Button>
-        <Button
-          label={"Save"}
-          disabled={!canUndo}
-          onClick={() => console.log("save")}
-        ></Button>
-        <Button
-          label={"Cancel"}
-          disabled={!canUndo && !canRedo}
-          onClick={() => resetState(initState)}
-        ></Button>
+    <div className="editor-body">
+      <div id="left" className="column">
+        <div className="top-left">{state.present.name}</div>
+        <div className="bottom">{sidebarContent}</div>
       </div>
-      <div className="editor">
-        <Sidebar class="editor-sidebar" children={sidebarContent}></Sidebar>
-        <div className="editor-content">
+      <div id="right" className="column">
+        <div className="top-right">
+          <Button styledClass="undo-btn" label={`Undo`} onClick={undoState}>
+            <span className="step-count past">{state.past.length}</span>
+          </Button>
+          <Button styledClass="redo-btn" label={"Redo"} onClick={redoState}>
+            <span className="step-count future">{state.future.length}</span>
+          </Button>
+          <Button
+            styledClass="save-btn"
+            label={"Save"}
+            // disabled={!canUndo}
+            onClick={() => console.log("onSAVE")}
+          ></Button>
+          <Button
+            styledClass="cancel-btn"
+            label={"Cancel"}
+            // disabled={!canUndo && !canRedo}
+            onClick={() => resetState(initState)}
+          ></Button>
+        </div>
+        <div className="bottom">
           <Content {...presentState} setContent={setState}></Content>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

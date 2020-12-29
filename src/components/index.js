@@ -6,3 +6,4 @@ export { List } from "./List/List";
 export { Item } from "./ListItem/ListItem";
 export { Select } from "./Select/Select";
 export { Sidebar } from "./Sidebar/Sidebar";
+export { MCheckbox } from "./MutliSelectCheckbox/MultiSelectCheckbox";

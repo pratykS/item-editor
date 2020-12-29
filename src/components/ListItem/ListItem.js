@@ -1,13 +1,14 @@
 import React from "react";
 import "./ListItem.css";
 const ListItemComponent = (props) => {
-  const { content, onClickHandler } = props;
+  const { content, label, onClickHandler } = props;
   const onItemClickHandler = (e) => {
     onClickHandler(e);
   };
+
   return (
     <li className="list-item" onClick={() => onItemClickHandler(content.id)}>
-      {content.content}
+      {label}
     </li>
   );
 };
