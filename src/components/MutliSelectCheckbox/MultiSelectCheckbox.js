@@ -1,4 +1,5 @@
 import React from "react";
+import "./MultiSelectCheckbox.css";
 
 const MultiselectCheckbox = ({ options, onChange }) => {
   const toggle = (index) => {
@@ -14,15 +15,16 @@ const MultiselectCheckbox = ({ options, onChange }) => {
   return (
     <>
       {options.map((item, index) => (
-        <label key={item.label}>
+        <div className="form-group" key={index}>
           <input
             readOnly
             type="checkbox"
+            id={item.label}
             checked={item.checked || false}
             onClick={() => toggle(index)}
           />
-          {item.label}
-        </label>
+          <label htmlFor={item.label}>{item.label}</label>
+        </div>
       ))}
     </>
   );

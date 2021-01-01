@@ -9,12 +9,14 @@
 .editor-body {
     height: 100%;
     overflow: hidden;
-    /*makes the body non-scrollable (we will add scrolling to the sidebar and main content containers)*/
     margin: 0px;
-    /*removes default style*/
-    display: flex;
-    /*enables flex content for its children*/
+    display: inline-flex;
     box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
 }
 
 .column {

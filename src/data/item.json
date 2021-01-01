@@ -53,5 +53,38 @@
     "plays": null,
     "wanderlust": false,
     "favoritePlace": ""
+  },
+  {
+    "id": 6,
+    "name": "Lucas",
+    "gender": "female",
+    "developer": false,
+    "musician": false,
+    "technologies": null,
+    "plays": null,
+    "wanderlust": false,
+    "favoritePlace": ""
+  },
+  {
+    "id": 7,
+    "name": "Chloe",
+    "gender": "female",
+    "developer": false,
+    "musician": false,
+    "technologies": null,
+    "plays": null,
+    "wanderlust": false,
+    "favoritePlace": ""
+  },
+  {
+    "id": 8,
+    "name": "Irina",
+    "gender": "female",
+    "developer": false,
+    "musician": false,
+    "technologies": null,
+    "plays": null,
+    "wanderlust": false,
+    "favoritePlace": ""
   }
 ]

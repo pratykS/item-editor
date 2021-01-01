@@ -59,6 +59,9 @@ const reducer = (state, action) => {
         future: [],
       };
     }
+    default: {
+      return state;
+    }
   }
 };
 
@@ -68,28 +71,32 @@ const useUndo = (initialPresent) => {
     present: initialPresent,
   });
 
-  const canUndo = state.past.length !== 0;
-  const canRedo = state.future.length !== 0;
-  const undo = useCallback(() => {
-    if (canUndo) {
+  const undoCount = state.past.length;
+  const redoCount = state.future.length;
+
+  const undoState = useCallback(() => {
+    if (undoCount !== 0) {
       dispatch({ type: UNDO });
     }
-  }, [canUndo]);
-  const redo = useCallback(() => {
-    if (canRedo) {
+  }, [undoCount]);
+  const redoState = useCallback(() => {
+    if (redoCount !== 0) {
       dispatch({ type: REDO });
     }
-  }, [canRedo]);
-  const set = useCallback(
+  }, [redoCount]);
+  const setState = useCallback(
     (newPresent) => dispatch({ type: SET, newPresent }),
     []
   );
-  const reset = useCallback(
+  const resetState = useCallback(
     (newPresent) => dispatch({ type: RESET, newPresent }),
     []
   );
 
-  return [state, { set, reset, undo, redo, canUndo, canRedo }];
+  return [
+    state,
+    { setState, resetState, undoState, redoState, undoCount, redoCount },
+  ];
 };
 
 export const useHistory = useUndo;

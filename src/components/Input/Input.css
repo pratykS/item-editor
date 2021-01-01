@@ -1,0 +1,14 @@
+.name-input{
+    flex: 1 1;
+    border: 1px solid #d6d8da;
+    height: 46px;
+    font-size: 14px;
+    display: block;
+    /* margin-top: 20px; */
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 48px;
+    border-radius: 6px;
+    width: 96%;
+    padding: 0 8px;
+}

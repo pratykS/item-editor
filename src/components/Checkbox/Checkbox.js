@@ -1,4 +1,5 @@
 import React from "react";
+import "./Checkbox.css";
 
 const CheckboxComponent = (props) => {
   const { checked, onChangeHandler, label, index } = props;
@@ -11,12 +12,23 @@ const CheckboxComponent = (props) => {
 
   return (
     <React.Fragment>
-      <input
+      <label className="toggle">
+        <input
+          className="toggle-checkbox"
+          type="checkbox"
+          checked={checked}
+          onChange={(e) => handleOnChange(e)}
+        />
+        <div className="toggle-switch"></div>
+        <span className="toggle-label">{label}</span>
+      </label>
+      {/* <input
+        className="styled-checkbox"
         type="checkbox"
         checked={checked}
         onChange={(e) => handleOnChange(e)}
       ></input>
-      <label>{label}</label>
+      <label>{label}</label> */}
     </React.Fragment>
   );
 };
