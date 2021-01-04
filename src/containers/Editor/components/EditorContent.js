@@ -2,27 +2,9 @@ import React from "react";
 import { Checkbox, Input, Select, MCheckbox } from "../../../components";
 import { Item } from "../../../model/Item";
 import "./EditorContent.css";
+import { selectboxOptionList, checkboxOptionList } from "../../../utils";
 
-const data = Item.getAvailableGender();
-const genderList = data.map((ag, i) => {
-  return {
-    id: i + 1,
-    label: ag,
-    value: ag.toLowerCase(),
-  };
-});
-
-const optionList = (obj, aICb, sICb) => {
-  const availableOptions = aICb();
-  const selectedOptions = sICb(obj);
-  const options = availableOptions.map((aI) => {
-    return {
-      label: aI,
-      checked: selectedOptions ? selectedOptions.includes(aI) : false,
-    };
-  });
-  return options;
-};
+const genderOptions = selectboxOptionList(Item.getAvailableGender);
 
 const EditorContentComponent = (props) => {
   const { name, gender, favoritePlace, setContent } = props;
@@ -40,7 +22,8 @@ const EditorContentComponent = (props) => {
   };
 
   const genderSelectHandler = (gender) => {
-    const selectedOption = genderList.find((o) => o.id === Number(gender))
+    console.log(gender);
+    const selectedOption = genderOptions.find((o) => o.id === Number(gender))
       .value;
     setContent({ ...props, gender: selectedOption });
   };
@@ -88,7 +71,7 @@ const EditorContentComponent = (props) => {
           <header className="section-header">Gender</header>
           <section className="edit-section">
             <Select
-              options={genderList}
+              options={selectboxOptionList(Item.getAvailableGender)}
               onChangeHandler={genderSelectHandler}
               selectedOption={Item.getSelectedGender(props)}
             ></Select>
@@ -118,23 +101,13 @@ const EditorContentComponent = (props) => {
           ></Checkbox>
         </section>
       </section>
-      {/* <section className="edit-section">
-        <MCheckbox
-            options={optionList(
-              props,
-              Item.getAvailableLanguages,
-              Item.getSelectedLanguage
-            )}
-            onChange={techChangeHandler}
-          />
-      </section> */}
 
       {Item.isDeveloper(props) && (
         <section className="outer-section">
           <header className="section-header">Technologies</header>
           <section className="edit-section tech-box">
             <MCheckbox
-              options={optionList(
+              options={checkboxOptionList(
                 props,
                 Item.getAvailableLanguages,
                 Item.getSelectedLanguage
@@ -163,7 +136,7 @@ const EditorContentComponent = (props) => {
           <header className="section-header">Instruments</header>
           <section className="edit-section instrument-box">
             <MCheckbox
-              options={optionList(
+              options={checkboxOptionList(
                 props,
                 Item.getAvailableIntruments,
                 Item.getSelectedInstruments

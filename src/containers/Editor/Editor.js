@@ -1,14 +1,13 @@
 import React from "react";
 import { List, Button } from "../../components";
 import "./Editor.css";
-import { ItemService } from "../../services/ItemService";
-import { useHistory } from "../../hooks/useHistory";
+import { useHistory } from "../../utils";
 import { Content } from "./components/EditorContent";
 
-const itemArray = ItemService.getItems();
+const EditorComponent = (props) => {
+  const { title, items, onSave } = props;
 
-const EditorComponent = () => {
-  const initState = itemArray[0];
+  const initState = items[0];
 
   const [
     state,
@@ -18,17 +17,17 @@ const EditorComponent = () => {
   const { present: presentState } = state;
 
   const onMenuClickHandler = (e) => {
-    setState(itemArray[e - 1]);
+    setState(items[e - 1]);
   };
 
   const sidebarContent = (
-    <List items={itemArray} onClickHandler={onMenuClickHandler}></List>
+    <List items={items} onClickHandler={onMenuClickHandler}></List>
   );
 
   return (
     <div className="editor-body">
       <div id="left" className="column">
-        <div className="top-left">{state.present.name}</div>
+        <div className="top-left">{title}</div>
         <div className="bottom">{sidebarContent}</div>
       </div>
       <div id="right" className="column">
@@ -42,7 +41,7 @@ const EditorComponent = () => {
           <Button
             styledClass="save-btn"
             label={"Save"}
-            onClick={() => console.log("onSAVE")}
+            onClick={() => onSave(presentState)}
           ></Button>
           <Button
             styledClass="cancel-btn"

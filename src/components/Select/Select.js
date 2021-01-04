@@ -3,8 +3,10 @@ import "./Select.css";
 
 const SelectboxComponent = (props) => {
   const { options, onChangeHandler, selectedOption } = props;
+
   const selectedIndex =
     options.findIndex((o) => o.value === selectedOption) + 1;
+
   return (
     <select
       className="select-dropdown"

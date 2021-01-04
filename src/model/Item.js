@@ -1,6 +1,9 @@
 export class ItemClass {
   getAvailableGender() {
-    return ["Male", "Female"];
+    return [
+      { label: "Male", value: "male" },
+      { label: "Female", value: "female" },
+    ];
   }
   getAvailableTraits() {
     return ["Developer", "Tester", "Engineering Manager", "Product Manager"];
