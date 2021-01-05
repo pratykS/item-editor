@@ -1,7 +1,8 @@
 import React from "react";
-import { List, Button } from "components";
+import { List } from "components";
 import { useHistory } from "utils";
 import { Content } from "components/container/Editor/EditorContent/EditorContent";
+import { EditorHeader } from "./EditorHeader/EditorHeader";
 import "./Editor.css";
 
 const EditorComponent = (props) => {
@@ -27,8 +28,11 @@ const EditorComponent = (props) => {
     <List items={items} onClickHandler={onMenuClickHandler}></List>
   );
 
-  const onSaveHandler = (presentState) => {
-    onSave(presentState);
+  const onSaveHandler = () => {
+    onSave(presentState.content);
+  };
+  const onResetHandler = () => {
+    resetState(initState);
   };
 
   return (
@@ -38,7 +42,7 @@ const EditorComponent = (props) => {
         <div className="bottom">{sidebarContent}</div>
       </div>
       <div id="right" className="column">
-        <div className="top-right">
+        {/* <div className="top-right">
           <Button styledClass="undo-btn" label={`Undo`} onClick={undoState}>
             <span className="step-count past">{undoCount}</span>
           </Button>
@@ -55,7 +59,15 @@ const EditorComponent = (props) => {
             label={"Cancel"}
             onClick={() => resetState(initState)}
           ></Button>
-        </div>
+        </div> */}
+        <EditorHeader
+          undoState={undoState}
+          undoCount={undoCount}
+          redoState={redoState}
+          redoCount={redoCount}
+          setState={onSaveHandler}
+          resetState={onResetHandler}
+        ></EditorHeader>
         <div className="bottom">
           <Content {...presentState} setContent={setState}></Content>
         </div>

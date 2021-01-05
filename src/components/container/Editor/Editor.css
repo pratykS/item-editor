@@ -20,7 +20,7 @@
 }
 
 .column {
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
 }
@@ -39,16 +39,17 @@
     background-color: #333;
     color: white;
     padding: 20px;
-    height: 56px;
+    height: 50px;
     line-height: 56px;
 }
 
 .top-right {
-    display: inline-flex;
+    display: flex;
     flex-shrink: 0;
     background-color: #333;
     color: white;
     padding: 20px;
+    justify-content: flex-end;
 }
 
 .bottom {
@@ -73,16 +74,20 @@ li {
 
 .undo-btn{
     background: #008CBA;
+    color:black;
 }
 
 .redo-btn {
     background: green;
+    color:white
 }
 .save-btn {
     background: gray;
+    color:black
 }
 .cancel-btn {
     background: #f44336;
+    color:black
 }
 .step-count{
     height: 20px;
@@ -90,12 +95,10 @@ li {
     margin-left: 10px;
     border: 1px solid;
     padding: 5px 8px;
-    border-radius: 50%;
     color: black;
-}
-.past{
-    background: lightgoldenrodyellow;
-}
-.future{
-    background: yellow;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
 }
