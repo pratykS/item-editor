@@ -1,6 +1,6 @@
 import React from "react";
+import { Item } from "model/Item";
 import { Trait } from "./TraitBox/TraitBox";
-import { Item } from "../../../../../model/Item";
 import "./ItemTraitSection.css";
 
 const ItemTraitSectionComponent = (props) => {

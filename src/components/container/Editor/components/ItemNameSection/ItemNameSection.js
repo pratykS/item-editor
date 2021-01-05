@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from "../../../../display";
+import { Input } from "components";
 const ItemNameSectionComponent = (props) => {
   const {
     title,

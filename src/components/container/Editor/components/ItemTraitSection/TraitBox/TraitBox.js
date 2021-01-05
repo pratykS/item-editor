@@ -1,5 +1,5 @@
 import React from "react";
-import { Checkbox } from "../../../../../display";
+import { Checkbox } from "components";
 const TraitComponent = (props) => {
   const { label, checked, changeHandler } = props;
 

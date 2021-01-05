@@ -1,2 +1,3 @@
-export { Editor } from "./Editor/Editor";
-export { Home } from "./Home/Home";
+import { Editor } from "./Editor/Editor";
+import { Home } from "./Home/Home";
+export { Editor, Home };

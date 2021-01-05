@@ -1,7 +1,7 @@
 import React from "react";
-import { MCheckbox } from "../../../../display";
-import { checkboxOptionList } from "../../../../../utils";
-import { Item } from "../../../../../model/Item";
+import { MCheckbox } from "components";
+import { checkboxOptionList } from "utils";
+import { Item } from "model/Item";
 import "./InstrumentSection.css";
 
 const InstrumentsSectionComponent = (props) => {

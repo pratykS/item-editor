@@ -1,4 +1,4 @@
-import items from "../data/item.json";
+import items from "data/item.json";
 
 //dummy service to pull the data
 class ItemServiceClass {

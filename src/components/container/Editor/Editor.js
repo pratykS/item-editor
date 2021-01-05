@@ -1,8 +1,8 @@
 import React from "react";
-import { List, Button } from "../../../components";
+import { List, Button } from "components";
+import { useHistory } from "utils";
+import { Content } from "components/container/Editor/EditorContent/EditorContent";
 import "./Editor.css";
-import { useHistory } from "../../../utils";
-import { Content } from "./EditorContent/EditorContent";
 
 const EditorComponent = (props) => {
   const { title, items, onSave } = props;

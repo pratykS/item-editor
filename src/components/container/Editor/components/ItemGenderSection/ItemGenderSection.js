@@ -1,7 +1,7 @@
 import React from "react";
-import { Select } from "../../../../display";
-import { selectboxOptionList } from "../../../../../utils";
-import { Item } from "../../../../../model/Item";
+import { Select } from "components";
+import { selectboxOptionList } from "utils";
+import { Item } from "model/Item";
 
 const genderOptions = selectboxOptionList(Item.getAvailableGender);
 

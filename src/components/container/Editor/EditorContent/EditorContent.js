@@ -1,7 +1,7 @@
 import React from "react";
-import { Item } from "../../../../model/Item";
+import { Item } from "model/Item";
+import { ObjectUpdator } from "utils";
 import "./EditorContent.css";
-import { ObjectUpdator } from "../../../../utils";
 
 import {
   FavoritePlace,
@@ -10,7 +10,7 @@ import {
   ItemNameSection,
   ItemTraitSection,
   TechnologiesSection,
-} from "../components";
+} from "components/container/Editor/components";
 
 const EditorContentComponent = (props) => {
   const { content, selectedContent, setContent } = props;

@@ -9,3 +9,4 @@ export {
   Select,
   Sidebar,
 } from "./display";
+export { Editor, Home } from "./container";

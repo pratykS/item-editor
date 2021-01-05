@@ -1,6 +1,6 @@
 import React from "react";
-import { Editor } from "../Editor/Editor";
-import { ItemService } from "../../../services/ItemService";
+import { Editor } from "components";
+import { ItemService } from "services/ItemService";
 
 const items = ItemService.getItems();
 
