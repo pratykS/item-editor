@@ -1,0 +1,4 @@
+.trait-box {
+    display: flex;
+    justify-content: space-between;
+}

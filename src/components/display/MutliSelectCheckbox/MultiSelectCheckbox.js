@@ -1,7 +1,8 @@
 import React from "react";
 import "./MultiSelectCheckbox.css";
 
-const MultiselectCheckbox = ({ options, onChange }) => {
+const MultiselectCheckbox = (props) => {
+  const { options, onChangeHandler } = props;
   const toggle = (index) => {
     const newData = [...options];
     newData.splice(index, 1, {
@@ -9,7 +10,7 @@ const MultiselectCheckbox = ({ options, onChange }) => {
       checked: !options[index].checked,
     });
 
-    onChange(newData.filter((x) => x.checked));
+    onChangeHandler(newData.filter((x) => x.checked));
   };
 
   return (

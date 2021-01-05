@@ -1,13 +1,13 @@
 import React from "react";
-import { List, Button } from "../../components";
+import { List, Button } from "../../../components";
 import "./Editor.css";
-import { useHistory } from "../../utils";
-import { Content } from "./components/EditorContent";
+import { useHistory } from "../../../utils";
+import { Content } from "./EditorContent/EditorContent";
 
 const EditorComponent = (props) => {
   const { title, items, onSave } = props;
 
-  const initState = items[0];
+  const initState = { content: items, selectedContent: items[0] };
 
   const [
     state,
@@ -17,12 +17,19 @@ const EditorComponent = (props) => {
   const { present: presentState } = state;
 
   const onMenuClickHandler = (e) => {
-    setState(items[e - 1]);
+    setState({
+      content: [...presentState.content],
+      selectedContent: { ...presentState.content[e - 1] },
+    });
   };
 
   const sidebarContent = (
     <List items={items} onClickHandler={onMenuClickHandler}></List>
   );
+
+  const onSaveHandler = (presentState) => {
+    onSave(presentState);
+  };
 
   return (
     <div className="editor-body">
@@ -41,7 +48,7 @@ const EditorComponent = (props) => {
           <Button
             styledClass="save-btn"
             label={"Save"}
-            onClick={() => onSave(presentState)}
+            onClick={() => onSaveHandler(presentState)}
           ></Button>
           <Button
             styledClass="cancel-btn"
