@@ -10,7 +10,7 @@ const FavoritePlaceComponent = (props) => {
   return (
     <section className="outer-section">
       <header className="section-header">
-        <label for="place">{title}</label>
+        <label htmlFor="place">{title}</label>
       </header>
       <section className="edit-section">
         <Input

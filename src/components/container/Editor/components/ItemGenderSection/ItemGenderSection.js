@@ -18,7 +18,7 @@ const ItemGenderSectionComponent = (props) => {
   return (
     <section className="outer-section">
       <header className="section-header">
-        <label for="gender">{title}</label>
+        <label htmlFor="gender">{title}</label>
       </header>
       <section className="edit-section">
         <Select

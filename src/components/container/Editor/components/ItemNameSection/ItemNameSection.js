@@ -10,7 +10,7 @@ const ItemNameSectionComponent = (props) => {
   return (
     <section className="outer-section">
       <header className="section-header">
-        <label for="name">{title}</label>
+        <label htmlFor="name">{title}</label>
       </header>
       <section className="edit-section">
         <Input
