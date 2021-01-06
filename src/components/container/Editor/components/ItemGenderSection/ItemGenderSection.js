@@ -17,9 +17,12 @@ const ItemGenderSectionComponent = (props) => {
 
   return (
     <section className="outer-section">
-      <header className="section-header">{title}</header>
+      <header className="section-header">
+        <label for="gender">{title}</label>
+      </header>
       <section className="edit-section">
         <Select
+          label="gender"
           options={selectboxOptionList(Item.getAvailableGender)}
           onChangeHandler={genderChangeHandler}
           selectedOption={Item.getSelectedGender(object)}

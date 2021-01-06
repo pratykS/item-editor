@@ -25,7 +25,11 @@ const EditorComponent = (props) => {
   };
 
   const sidebarContent = (
-    <List items={items} onClickHandler={onMenuClickHandler}></List>
+    <List
+      items={state.present.content}
+      active={state.present.selectedContent}
+      onClickHandler={onMenuClickHandler}
+    ></List>
   );
 
   const onSaveHandler = () => {

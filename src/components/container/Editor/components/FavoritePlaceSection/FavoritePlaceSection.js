@@ -9,9 +9,12 @@ const FavoritePlaceComponent = (props) => {
 
   return (
     <section className="outer-section">
-      <header className="section-header">{title}</header>
+      <header className="section-header">
+        <label for="place">{title}</label>
+      </header>
       <section className="edit-section">
         <Input
+          label={"place"}
           value={favoritePlace}
           onChangeHandler={(fp) => updateObject({ favoritePlace: fp })}
         ></Input>
